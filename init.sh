@@ -4,6 +4,7 @@
 
 #global constants / variables
 FEDORA_DOCKER_REPO='https://download.docker.com/linux/fedora/docker-ce.repo'
+COMPOSE_VERSION='1.28.2'
 
 #colors
 GREENFONT='\033[0;32m'
@@ -37,4 +38,27 @@ fi
 sudo dnf -y install docker-ce docker-ce-cli containerd.io
 echo "Starting Docker and Running Docker Hello World Container Test..."
 sudo systemctl start docker
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
 sudo docker run hello-world
+sudo curl -L "https://github.com/docker/compose/releases/download/$COMPOSE_VERSION/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+sudo mkdir c7-systemd-base
+sudo touch c7-systemd-base/Dockerfile >> 
+"
+FROM centos:7
+ENV container docker
+RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
+systemd-tmpfiles-setup.service ] || rm -f $i; done); \
+rm -f /lib/systemd/system/multi-user.target.wants/*;\
+rm -f /etc/systemd/system/*.wants/*;\
+rm -f /lib/systemd/system/local-fs.target.wants/*; \
+rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
+rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
+rm -f /lib/systemd/system/basic.target.wants/*;\
+rm -f /lib/systemd/system/anaconda.target.wants/*;
+VOLUME [ "/sys/fs/cgroup" ]
+CMD ["/usr/sbin/init"]
+"
+sudo docker build --rm -t c7-systemd-base .
