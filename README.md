@@ -5,9 +5,9 @@ Free Generalized Docker Containers for Developer Operations Workflows. Check bac
 This repo contains everything needed to launch a virtual development environment for web-based 
 services that are being deployed from a Fedora Workstation -> CENTOS server. 
 
-> The Repository has two standard branches
->> Master 
->> Develop
+The Repository has two standard branches
+1. master 
+2. develop
 
 ### fedora-centos-base
 Contains init.sh which gets docker & tools running on the developers fedora workstation. 
@@ -15,19 +15,19 @@ Contains init.sh which gets docker & tools running on the developers fedora work
 #### fedora-centos-base install verification screenshots
 
 ##### 1
-![installing docker & the fedora-centos-base container](fedora-centos-base/setuo_images/1.png)
+![image one](fedora-centos-base/setup_images/1.png)
 ##### 2
-![installing docker & the fedora-centos-base container](fedora-centos-base/setuo_images/2.png)
+![image two](fedora-centos-base/setup_images/2.png)
 ##### 3
-![installing docker & the fedora-centos-base container](fedora-centos-base/setuo_images/3.png)
+![image three](fedora-centos-base/setup_images/3.png)
 ##### 4
-![installing docker & the fedora-centos-base container](fedora-centos-base/setuo_images/4.png)
+![image four](fedora-centos-base/setup_images/4.png)
 ##### 5
-![installing docker & the fedora-centos-base container](fedora-centos-base/setuo_images/5.png)
+![image five](fedora-centos-base/setup_images/5.png)
 ##### 6
-![installing docker & the fedora-centos-base container](fedora-centos-base/setuo_images/6.png)
+![image six](fedora-centos-base/setup_images/6.png)
 ##### 7
-![installing docker & the fedora-centos-base container](fedora-centos-base/setuo_images/7.png)
+![image seven](fedora-centos-base/setup_images/7.png)
 
 ### centos-lamp
 This is a general CLAMP web-server container... To use this enter the following command
@@ -39,4 +39,4 @@ Also ensure to change /websites/:/var/www/html to whatever your local directory 
 
 #### centos-lamp install verification screenshots
 
-![installing the centos-lamp container](centos-lamp/setuo_images/1-installing.png)
+![installing the centos-lamp container](centos-lamp/setup_images/1-installing.png)
